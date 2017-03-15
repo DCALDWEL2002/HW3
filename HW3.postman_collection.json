@@ -1,0 +1,68 @@
+{
+	"variables": [],
+	"info": {
+		"name": "HW3",
+		"_postman_id": "bafcb313-347c-3481-a803-942154d941e8",
+		"description": "This contains a file: \nswagger.yaml contains path to getGitHub\nhelloworld.js contains the function that gets info from github",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:10010/hello",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var data = JSON.parse(responseBody)",
+							"var auth_token = data.access_token;//var to hold the authToken",
+							"postman.setEnvironmentVariable(\"access_token\", auth_token);//Postman setting environment variable to declared var to store",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://127.0.0.1:10010/hello",
+				"method": "GET",
+				"header": [
+					{
+						"key": "client_id",
+						"value": "GIHfQuPQOAmhU1EPYJNo483eyaYUYYyA",
+						"description": ""
+					},
+					{
+						"key": "client_secret",
+						"value": "4iwJf5Mev3QqeZG7",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "GIHfQuPQOAmhU1EPYJNo483eyaYUYYyA",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "4iwJf5Mev3QqeZG7",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
